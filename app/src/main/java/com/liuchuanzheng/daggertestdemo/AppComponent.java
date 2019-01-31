@@ -1,6 +1,6 @@
 package com.liuchuanzheng.daggertestdemo;
 
-import javax.inject.Singleton;
+import android.content.Context;
 
 import dagger.Component;
 
@@ -12,8 +12,7 @@ import dagger.Component;
  * 作用:向dagger表明注入到哪去
  * 注意事项:
  */
-@Singleton
-@Component(modules = UserModule.class)
-public interface UserComponent {
-    void injectUser(MainActivity activity);
+@Component(modules = AppModule.class)
+public interface AppComponent {
+    Context getContext();
 }

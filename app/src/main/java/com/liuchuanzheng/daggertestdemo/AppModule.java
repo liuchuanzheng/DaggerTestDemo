@@ -1,6 +1,6 @@
 package com.liuchuanzheng.daggertestdemo;
 
-import javax.inject.Singleton;
+import android.content.Context;
 
 import dagger.Module;
 import dagger.Provides;
@@ -14,10 +14,15 @@ import dagger.Provides;
  * 注意事项:
  */
 @Module
-public class UserModule {
-    @Singleton
+public class AppModule {
+    private Context context;
+
+    public AppModule(Context context) {
+        this.context = context;
+    }
+
     @Provides
-    static User2 provideUser2() {
-        return new User2("user2");
+    public Context providesContext() {
+        return context;
     }
 }

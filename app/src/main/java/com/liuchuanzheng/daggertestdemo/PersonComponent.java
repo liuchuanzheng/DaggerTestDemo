@@ -1,7 +1,5 @@
 package com.liuchuanzheng.daggertestdemo;
 
-import javax.inject.Singleton;
-
 import dagger.Component;
 
 /**
@@ -12,8 +10,7 @@ import dagger.Component;
  * 作用:向dagger表明注入到哪去
  * 注意事项:
  */
-@Singleton
-@Component(modules = UserModule.class)
-public interface UserComponent {
-    void injectUser(MainActivity activity);
+@Component(dependencies = {AppComponent.class},modules = PersonModule.class)
+public interface PersonComponent {
+    void inject(Test test);
 }

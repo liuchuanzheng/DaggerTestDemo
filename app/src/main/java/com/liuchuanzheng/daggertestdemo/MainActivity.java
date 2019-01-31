@@ -1,7 +1,8 @@
 package com.liuchuanzheng.daggertestdemo;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import javax.inject.Inject;
 
@@ -22,6 +23,9 @@ public class MainActivity extends AppCompatActivity {
     public User user;
     @Inject
     public User2 user2;
+    @Inject
+    public User2 user2_2;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,5 +34,9 @@ public class MainActivity extends AppCompatActivity {
         DaggerUserComponent.builder().build().injectUser(this);
         user.showName();
         user2.showName();
+        //测试单例
+        Log.i("daggerDemo","user2:"+user2);
+        Log.i("daggerDemo","user2_2:"+user2_2);
+        Test test = new Test(this);
     }
 }
